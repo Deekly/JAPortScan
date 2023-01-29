@@ -1,8 +1,11 @@
 import socket
 
-def portscan():
-    host = input('Host --> ')
-    port = int(input('Port --> '))
+myHost = input('Host --> ')
+myPort = int(input('Port --> '))
+
+
+def portscan(host, port):
+
 
     scan = socket.socket()
 
@@ -13,4 +16,11 @@ def portscan():
     else:
         print('Port -- ', port, '-- [OPEN]')
 
-portscan()
+portscan(myHost, myPort)
+
+file = open('log.txt', 'w')
+file.writelines('Host was {0}\n'.format(myHost))
+file.writelines('Port was {0}'.format(myPort))
+
+file.close()
+
